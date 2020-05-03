@@ -1,3 +1,67 @@
 <app-navbar></app-navbar>
-
-<p>login works!</p>
+<div class="my-form">
+  <form
+    class="signup-form"
+    [formGroup]="loginUserFormGroup"
+    (ngSubmit)="loginUserFormGroup.valid && loginUser()"
+    novalidate
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="email" formControlName="email" />
+              <mat-error
+                *ngIf="
+                  loginUserFormGroup.controls['email'].hasError('required')
+                "
+              >
+                email is <strong>Required</strong>
+              </mat-error>
+              <!-- <mat-error *ngIf="loginUserFormGroup.controls.email?.invalid">
+                This email is <strong>Invalid</strong>
+              </mat-error> -->
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                type="password"
+                matInput
+                placeholder="password"
+                formControlName="password"
+              />
+              <mat-error
+                *ngIf="
+                  loginUserFormGroup.controls['password'].hasError('required')
+                "
+              >
+                Password is <strong>Required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="loginUserFormGroup.controls.password.errors?.minlength"
+              >
+                Minimum Length Should be 8
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          Login
+        </button>
+      </mat-card-actions>
+      <p><a [routerLink]="'/forgetPassword'">Forget Password?</a></p>
+      <p>
+        Don't have an account? <a [routerLink]="'/register'">Register here</a>
+      </p>
+    </mat-card>
+  </form>
+</div>

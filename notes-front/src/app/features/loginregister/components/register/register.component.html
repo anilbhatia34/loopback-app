@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <div class="my-form">
-  <form class="signup-form" [formGroup]="registerUserFormGroup" novalidate>
+  <form
+    class="signup-form"
+    [formGroup]="registerUserFormGroup"
+    (ngSubmit)="registerUserFormGroup.valid && registerUser()"
+    novalidate
+  >
     <mat-card>
       <mat-card-header>
         <mat-card-title>REGISTER</mat-card-title>
@@ -84,6 +89,7 @@
           <div class="col">
             <mat-form-field class="full-width">
               <input
+                type="password"
                 matInput
                 placeholder="password"
                 formControlName="password"
@@ -111,6 +117,7 @@
           <div class="col">
             <mat-form-field class="full-width">
               <input
+                type="password"
                 matInput
                 placeholder="confirmPassword"
                 formControlName="confirmPassword"

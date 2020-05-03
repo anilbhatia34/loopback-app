@@ -53,4 +53,8 @@ export class RegisterComponent implements OnInit {
     const confirmPass = group.controls.confirmPassword.value;
     return pass === confirmPass ? null : group.controls.confirmPassword.setErrors({ notSame: true });
   }
+  // Register User
+  registerUser() {
+    console.log('working')
+  }
 }
