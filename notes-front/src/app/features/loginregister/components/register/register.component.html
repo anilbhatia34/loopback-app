@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+<div class="my-form">
+  <form class="signup-form" [formGroup]="registerUserFormGroup" novalidate>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>REGISTER</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="First Name"
+                formControlName="firstname"
+              />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['firstname'].hasError(
+                    'required'
+                  )
+                "
+              >
+                First Name is <strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Last Name"
+                formControlName="lastname"
+              />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['lastname'].hasError(
+                    'required'
+                  )
+                "
+              >
+                Last Name is <strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Username"
+                formControlName="username"
+              />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['username'].hasError(
+                    'required'
+                  )
+                "
+              >
+                username is <strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="email" formControlName="email" />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['email'].hasError('required')
+                "
+              >
+                email is <strong>Required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="password"
+                formControlName="password"
+              />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['password'].hasError(
+                    'required'
+                  )
+                "
+              >
+                Password is <strong>Required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls.password.errors?.minlength
+                "
+              >
+                Minimum Length Should be 8
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="confirmPassword"
+                formControlName="confirmPassword"
+              />
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls['confirmPassword'].hasError(
+                    'required'
+                  )
+                "
+              >
+                confirmPassword is <strong>Required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  registerUserFormGroup.controls.confirmPassword.errors?.notSame
+                "
+              >
+                Password doesn't Match
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          Register
+        </button>
+      </mat-card-actions>
+      <p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
+    </mat-card>
+  </form>
+</div>
