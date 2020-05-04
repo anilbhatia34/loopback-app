@@ -147,6 +147,13 @@
           Register
         </button>
       </mat-card-actions>
+      <img
+        *ngIf="loading"
+        width="30px"
+        height="30px"
+        src="assets/loader.gif"
+        alt=""
+      />
       <p>Already have an account? <a [routerLink]="'/login'">Login</a></p>
     </mat-card>
   </form>

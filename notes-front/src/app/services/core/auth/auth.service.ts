@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    if (this.getToken) {
+    if (this.getToken()) {
       return true;
     }
     return false;

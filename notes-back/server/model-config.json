@@ -38,5 +38,12 @@
   "appuser": {
     "dataSource": "mydb",
     "public": true
+  },
+  "superuser": {
+    "dataSource": "mydb",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "Email"
   }
 }

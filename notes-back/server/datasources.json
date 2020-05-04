@@ -12,5 +12,21 @@
     "name": "mydb",
     "user": "",
     "connector": "mongodb"
+  },
+  "Email": {
+    "name": "Email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "anilbhatia4963@gmail.com",
+          "pass": "Anil_@10607"
+        }
+      }
+    ]
   }
 }
