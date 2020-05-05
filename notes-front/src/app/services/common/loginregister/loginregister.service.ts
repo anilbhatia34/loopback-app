@@ -2,7 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ConstantService } from "src/app/shared/constant/constant.service";
 import { observable, Observable } from "rxjs";
-import { RegisterUser, RegisterUserResponse } from "src/app/models/user.model";
+import {
+  RegisterUser,
+  RegisterUserResponse,
+  LoginResponse,
+  LoginUser,
+} from "src/app/models/user.model";
 
 @Injectable({
   providedIn: "root",
@@ -24,5 +29,13 @@ export class LoginregisterService {
       this.apiRoutes.signup,
       userData
     );
+  }
+
+  resendEmail(data: any) {
+    return this.httpClient.post(this.apiRoutes.sendverifyemail, data);
+  }
+
+  loginUser(userData: LoginUser): Observable<LoginResponse> {
+    return this.httpClient.post<LoginResponse>(this.apiRoutes.login, userData);
   }
 }

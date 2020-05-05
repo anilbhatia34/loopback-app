@@ -10,6 +10,7 @@ import { LoginregisterService } from "src/app/services/common/loginregister/logi
 import { RegisterUser, RegisterUserResponse } from "src/app/models/user.model";
 import { HelperService } from "src/app/shared/helper/helper.service";
 import { ConstantService } from "src/app/shared/constant/constant.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private compilerService: CompilerService,
     private loginRegisterService: LoginregisterService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -75,6 +77,12 @@ export class RegisterComponent implements OnInit {
       );
       this.loginRegisterService.registerUser(modifedData).subscribe(
         (response: RegisterUserResponse) => {
+          this.router.navigate([
+            "/verification",
+            {
+              email: JSON.stringify(response.email),
+            },
+          ]);
           this.loading = false;
           console.log(response);
         },

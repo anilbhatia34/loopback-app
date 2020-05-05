@@ -16,7 +16,20 @@ export class CompilerService {
     };
     return modifiedData;
   }
-  constructLoginUserObject(userData) {}
-  constructAfterLoginUserData(loginApiResponse) {}
+  constructLoginUserObject(userData) {
+    let modifiedData = {
+      email: userData.email,
+      password: userData.password,
+    };
+    return modifiedData;
+  }
+  constructAfterLoginUserData(loginApiResponse) {
+    let loginData = {
+      userId: loginApiResponse.userId,
+      superUserId: loginApiResponse.superUserId,
+      username: loginApiResponse.username,
+    };
+    return loginData;
+  }
   constructCategoriesData(data) {}
 }

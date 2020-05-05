@@ -11,6 +11,7 @@ import { ForgetpasswordComponent } from "./components/forgetpassword/forgetpassw
 import { TokeninterceptorService } from "src/app/services/core/interceptor/tokeninterceptor.service";
 import { AuthGuardService } from "src/app/services/core/guards/auth-guard.service";
 import { AuthService } from "src/app/services/core/auth/auth.service";
+import { VerificationComponent } from './components/verification/verification.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AuthService } from "src/app/services/core/auth/auth.service";
     RegisterComponent,
     NavbarComponent,
     ForgetpasswordComponent,
+    VerificationComponent,
   ],
   imports: [
     CommonModule,

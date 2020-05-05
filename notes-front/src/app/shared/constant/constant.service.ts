@@ -9,6 +9,7 @@ export class ConstantService {
   static apiRoutes = {
     login: `${environment.apiUrl}/appusers/login`,
     signup: `${environment.apiUrl}/appusers`,
+    sendverifyemail: `${environment.apiUrl}/appusers/sendEmail`,
   };
 
   static apiMethod = {

@@ -7,10 +7,31 @@ export interface RegisterUser {
 }
 
 export interface RegisterUserResponse {
-  email: String;
-  firstname: String;
-  id: String;
-  lastname: String;
-  role: String;
-  username: String;
+  email: string;
+  firstname: string;
+  id: string;
+  lastname: string;
+  role: string;
+  username: string;
+}
+
+export interface LoginUser {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  created: string;
+  emailVerified: boolean;
+  id: string;
+  responseCode: number;
+  role: string;
+  superuser: {
+    id: string;
+    rootUserId: string;
+    username: string;
+  };
+  superUserId: string;
+  ttl: number;
+  userId: string;
 }
